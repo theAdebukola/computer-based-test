@@ -37,7 +37,7 @@ function assessment(params) {
 cbt.innerHTML +=`<h4>Question ${index+1 } out of ${testQuestions.length}</h4>`;
 questions.innerHTML += `<h3>${testQuestions[index].question}</h3>`
     testQuestions[index].options.forEach((max) => {
-        options.innerHTML += `<input type = 'radio' value = ${max}><span>${max}</span><br>`
+        options.innerHTML += `<input type = 'radio' class = "mr-2 mb-3" value = ${max}> <span style = "font-size:20px">${max}</span><br>`
     });
 
 //for checking if question was answered
@@ -73,6 +73,9 @@ function nextQuestion(params) {
         else{
             index++;
             assessment();
+        }
+        if(index+1 == 20){
+            document.getElementById('next').style.display = "none";
         }
     }
     else{
